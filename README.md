@@ -28,4 +28,4 @@
 2. 复制如下脚本到vimrc
 3. 进入vim之后运行:PluginUpdate
 
-
+[1]: http://static.zybuluo.com/shenyuflying/cj63bslrkuvv0nidd53wser8/image_1b3rg746h1dpr29dsdu74o1u4qm.png
