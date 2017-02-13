@@ -30,8 +30,8 @@
 "   <F3> 显示符号窗口
 "   <F4> 生成工程的符号文件
 "
-"   <F5> 高亮文本中的符号
-"   <F6>
+"   <F5> 高亮文本中的符号 && 为CCTree 加载符号cscope.out
+"   <F6> 
 "   <F7>
 "   <F8>
 "
@@ -91,6 +91,7 @@ Plugin 'echofunc.vim'
 Plugin 'OmniCppComplete'
 "Plugin 'Syntastic'
 Plugin 'SuperTab'
+Plugin 'hari-rangarajan/CCTree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,8 +162,8 @@ set tags=tags;
 map <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim <CR>
 "映射F4在插入模式下也可以用
 imap <F4> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim<CR>
-map <F5> :so tags.vim<CR>
-imap <F5> <ESC> :so tags.vim<CR>
+map <F5> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
+imap <F5> <ESC> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
 
 
 "-----------------------------------------------------------
@@ -280,3 +281,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"-----------------------------------------------------------
+"               cctree
+"----------------------------------------------------------
+let g:CCTreeKeyTraceForwardTree = '<C-\>>'
+let g:CCTreeKeyTraceReverseTree = '<C-\><'
+let g:CCTreeKeyHilightTree = '<C-l>'
+let g:CCTreeKeySaveWindow = '<C-\>y'
+let g:CCTreeKeyToggleWindow = '<C-\>w'
+let g:CCTreeKeyCompressTree = 'zs'  
+let g:CCTreeKeyDepthPlus = '<C-\>='
+let g:CCTreeKeyDepthMinus = '<C-\>-'
