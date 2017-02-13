@@ -28,4 +28,13 @@
 2. 复制如下脚本到vimrc
 3. 进入vim之后运行:PluginUpdate
 
+ChangeLog
+------
+
+### add CCTree
+	- F5 to load data
+	- :help cctree for more info
+![ctree](http://static.zybuluo.com/shenyuflying/n9ge1arlt4vbsuj5j2scm0g4/cctree.png)
+
 [1]: http://static.zybuluo.com/shenyuflying/cj63bslrkuvv0nidd53wser8/image_1b3rg746h1dpr29dsdu74o1u4qm.png
+[2]: http://static.zybuluo.com/shenyuflying/n9ge1arlt4vbsuj5j2scm0g4/cctree.png
