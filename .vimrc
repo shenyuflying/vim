@@ -116,9 +116,11 @@ filetype plugin indent on    " required
 set nu
 " tab键为4个空格
 set ts=4
+" 自动切换为编辑文件的目录
+set autochdir
 
 "忽略大小写检索
-"set ignorecase
+set ignorecase
 "输入检索时动态变化
 set incsearch
 "检索高亮
@@ -137,16 +139,16 @@ inoremap <C-l> <Right>
 " 设置匹配模式，显示匹配的括号
 set showmatch 
 " 使用鼠标
-"set mouse=a
+set mouse=a
 "自动缩进
-"set shiftwidth=4
-"set softtabstop=4
-"set tabstop=4
-"set cindent
-"set autoindent
-"set noautoindent
-"set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 set smartindent
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set cindent
+set autoindent
+set noautoindent
+set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 
 
 "-----------------------------------------------------------
@@ -159,12 +161,17 @@ set smartindent
 set tags=./
 set tags=tags;
 "生成tag cscope tags.vim等符号文件
-map <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim <CR>
+"ctags --list-kinds 来查看生成那些符号
+map <F4> :!ctags -R  --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim <CR>
 "映射F4在插入模式下也可以用
 imap <F4> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim<CR>
 map <F5> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
 imap <F5> <ESC> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
 
+" Ctrl+\ - Open the definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Alt+] - Open the definition in a vertical split
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "-----------------------------------------------------------
 "                tagbar
