@@ -31,7 +31,7 @@
 "   <F4> 生成工程的符号文件
 "
 "   <F5> 高亮文本中的符号 && 为CCTree 加载符号cscope.out
-"   <F6> 
+"   <F6> 代码格式
 "   <F7>
 "   <F8>
 "
@@ -152,9 +152,10 @@ set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 
 
 "-----------------------------------------------------------
-"                build
+"                indent the current file 
 "----------------------------------------------------------
-"map <F5> :!make<CR>
+" 1.save 2.run indent 3.reopen
+map <F6> :w <CR> :!indent --blank-lines-after-declarations --no-space-after-function-call-names --brace-indent0 --declaration-indentation9  % <CR> :e<CR>
 "-----------------------------------------------------------
 "                ctags
 "----------------------------------------------------------
