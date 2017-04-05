@@ -155,7 +155,7 @@ set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "                indent the current file 
 "----------------------------------------------------------
 " 1.save 2.run indent 3.reopen
-map <F6> :w <CR> :!indent --blank-lines-after-declarations --no-space-after-function-call-names --brace-indent0 --declaration-indentation9  % <CR> :e<CR>
+map <F6> :w <CR> :!indent  --indent-level4  --blank-lines-after-declarations  --no-space-after-function-call-names  --brace-indent0 --declaration-indentation9  % <CR> :e<CR>
 "-----------------------------------------------------------
 "                ctags
 "----------------------------------------------------------
