@@ -14,6 +14,7 @@
 "   echofunc.vim     显示函数定义
 "   OmniCppComplete  提示结构体成员
 "   SuperTab         TAB键自动完成
+"   AutoPairs        括号自动补全
 " 4.文件浏览
 "   The-NERD-tree
 "   ctrlp.vim
@@ -92,6 +93,7 @@ Plugin 'OmniCppComplete'
 "Plugin 'Syntastic'
 Plugin 'SuperTab'
 Plugin 'hari-rangarajan/CCTree'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -141,13 +143,13 @@ set showmatch
 " 使用鼠标
 set mouse=a
 "自动缩进
-set smartindent
+"set smartindent
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set cindent
-set autoindent
-set noautoindent
+"set autoindent
+"set noautoindent
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 
 
