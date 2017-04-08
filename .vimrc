@@ -90,16 +90,15 @@ Plugin 'molokai'
 Plugin 'ctrlp.vim'
 Plugin 'echofunc.vim'
 Plugin 'OmniCppComplete'
-"Plugin 'Syntastic'
 Plugin 'SuperTab'
 Plugin 'hari-rangarajan/CCTree'
 Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -165,9 +164,9 @@ set tags=./
 set tags=tags;
 "生成tag cscope tags.vim等符号文件
 "ctags --list-kinds 来查看生成那些符号
-map <F4> :!ctags -R  --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim <CR>
+map <F4> :!ctags -R   --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim <CR>
 "映射F4在插入模式下也可以用
-imap <F4> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim<CR>
+imap <F4> <ESC>:!ctags -R --fields=+iaS --extra=+q . && cscope -Rbq  &&  awk '{print "syntax keyword tag "$1}' tags > tags.vim<CR>
 map <F5> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
 imap <F5> <ESC> :so tags.vim<CR> :CCTreeLoadDB cscope.out<CR>
 
@@ -272,7 +271,8 @@ let g:molokai_original = 1
 "               auto complete
 "                   https://github.com/vim-scripts/OmniCppComplete
 "----------------------------------------------------------
-
+set nocp
+set tags=./tags
 let OmniCpp_MayCompleteDot = 1   " 输入 .  后自动补全
 let OmniCpp_MayCompleteArrow = 1 " 输入 -> 后自动补全 
 let OmniCpp_MayCompleteScope = 1 " 输入 :: 后自动补全 
